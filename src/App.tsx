@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/index.scss'
 import Button, {ButtonSize, ButtonType} from "./components/Button/button";
+import Alert from './components/Alert';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Button btnType={ButtonType.Default} size={ButtonSize.Large}>Default-Large</Button>
         <Button btnType={ButtonType.Danger} size={ButtonSize.Large}>Danger-Large</Button>
         <Button btnType={ButtonType.Link} size={ButtonSize.Large}>Link-Large</Button>
+        <Alert message={'hello~'}></Alert>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>
