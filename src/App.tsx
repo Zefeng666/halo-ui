@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles/index.scss'
-import Hello from './components/Hello';
+import Alert from './components/Alert';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Hello message={'hello~'}></Hello>
+        <Alert message={'hello~'}></Alert>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>
