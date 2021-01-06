@@ -1,0 +1,35 @@
+.btn {
+  display: inline-block;
+  position: relative;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  //适应mixin来重用CSS样式
+  @include button-size($btn-padding-y,$btn-padding-x,$btn-font-size,$border-radius);
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition ;
+  //一种是包含disabled class的,一种是包含disaled 这样的attr的，都执行以下的操作
+  &.disabled , &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+    //使用子元素选择器选择所有的直接子元素
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+
+.btn-lg {
+  @include button-size($btn-padding-y-lg,$btn-padding-x-lg,$btn-font-size-lg,$border-radius-lg)
+}
+
+.btn-sm {
+  @include button-size($btn-padding-y-sm,$btn-padding-x-sm,$btn-font-size-sm,$border-radius-sm)
+}
