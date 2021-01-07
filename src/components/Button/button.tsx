@@ -5,6 +5,7 @@ import classNames from 'classnames'
  * */
 export enum ButtonSize {
     Large = 'lg',
+    Middle = 'md',
     Small = 'sm',
 }
 
@@ -15,7 +16,8 @@ export enum ButtonType {
     Primary ='primary',
     Default = 'default',
     Danger = 'danger',
-    Link = 'link'
+    Link = 'link',
+    Warning ='warning'
 }
 
 /**
@@ -69,6 +71,7 @@ const Button:FC<BaseButtonProps> = (props)=>{
 Button.defaultProps = {
     disabled:false,
     btnType : ButtonType.Default,
+    size: ButtonSize.Small
 }
 
 export default Button;

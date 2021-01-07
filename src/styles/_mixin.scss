@@ -3,3 +3,33 @@
   font-size: $font-size;
   border-radius: $border-radius;
 }
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background,7.5%),
+  $hover-border: lighten($border,10%),
+  $hover-color: $color,
+){
+  color: $color;
+  background: $background;
+  border-color: $border;
+  &:hover{
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+  &:focus,&.focus{
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+  //对一个按钮如果是disable进行特殊的处理
+  &:disabled,&.disabled{
+    color: $color;
+    background: $background;
+    border-color: $border;
+  }
+
+}
