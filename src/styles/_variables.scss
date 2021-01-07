@@ -41,6 +41,7 @@ $font-family-base:        $font-family-sans-serif !default;
 //字体大小
 $font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 $font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-md:                $font-size-base !default;
 $font-size-sm:                $font-size-base * .875 !default;
 $font-size-root:              null !default;
 
@@ -153,6 +154,7 @@ $border-width:                1px !default;
 $border-color:                $gray-300 !default;
 
 $border-radius:               .25rem !default;
+$border-radius-md:            $border-radius !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;
 
@@ -175,6 +177,10 @@ $btn-line-height:             $line-height-base !default;
 $btn-padding-y-sm:            .25rem !default;
 $btn-padding-x-sm:            .5rem !default;
 $btn-font-size-sm:            $font-size-sm !default;
+
+$btn-padding-y-md:            .35rem !default;
+$btn-padding-x-md:            .75rem !default;
+$btn-font-size-md:            $font-size-md !default;
 
 $btn-padding-y-lg:            .5rem !default;
 $btn-padding-x-lg:            1rem !default;
