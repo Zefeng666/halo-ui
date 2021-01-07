@@ -1,2 +1,2 @@
-import Alert from './Alert';
+import Alert from './alert';
 export default Alert;
