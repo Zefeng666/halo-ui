@@ -29,10 +29,11 @@ function App() {
         <Button btnType={ButtonType.Danger} size={ButtonSize.Large}>Danger-Large</Button>
         <Button btnType={ButtonType.Warning} size={ButtonSize.Large}>Waring-Large</Button>
         <Button btnType={ButtonType.Link} href={"https://www.baidu.com"} size={ButtonSize.Large}>Link-Large</Button>
-        <Alert message={'hello~'} type={'warning'}></Alert>
-        <Alert message={'hello~'} type={'info'}></Alert>
-        <Alert message={'hello~'} type={'error'}></Alert>
-        <Alert message={'hello~'} type={'success'}></Alert>
+        <h2>Alert</h2>
+        <Alert message={'hello~'} type={'warning'}/>
+        <Alert message={'hello~'} type={'info'}/>
+        <Alert message={'hello~'} type={'error'}/>
+        <Alert message={'hello~'} type={'success'}/>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>

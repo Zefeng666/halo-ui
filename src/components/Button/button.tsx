@@ -21,7 +21,7 @@ export enum ButtonType {
 }
 
 /**
- * Button组件属性接口
+ * Button组件基础属性接口
  * */
 interface BaseButtonProps{
     className?: string;
@@ -32,16 +32,28 @@ interface BaseButtonProps{
     href?:string;
 }
 
-const Button:FC<BaseButtonProps> = (props)=>{
+//Button按钮 原生属性与自定义属性的组合
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
+
+
+
+
+const Button:FC<ButtonProps> = (props)=>{
     const {
         btnType,
+        className,
         disabled,
         size,
         href,
-        children
+        children,
+        ...restProps
     } = props;
 
-    const classes = classNames('btn',{
+    //btn 基本属性，className 用户自定义样式, 组件属性推断出的样式
+    const classes = classNames('btn',className,{
         [`btn-${btnType}`]:btnType,
         [`btn-${size}`]:size,
         'disabled': (btnType === ButtonType.Link && disabled)
@@ -52,6 +64,7 @@ const Button:FC<BaseButtonProps> = (props)=>{
             <a
                 className={classes}
                 href={href}
+                {...restProps as AnchorButtonProps}
             >
                 {children}
             </a>
@@ -61,6 +74,7 @@ const Button:FC<BaseButtonProps> = (props)=>{
             <button
                 className={classes}
                 disabled={disabled}
+                {...restProps as ButtonProps}
             >
                 {children}
             </button>

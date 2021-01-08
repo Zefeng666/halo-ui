@@ -1,5 +1,9 @@
 .alert {
     border: $alert-border-width solid transparent;
+    padding: $alert-padding-y $alert-padding-x;
+    border-radius: $alert-border-radius;
+
+
 }
 .alert-info {
     @include alert-style($info)
