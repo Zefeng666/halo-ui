@@ -206,6 +206,13 @@ $btn-border-radius-sm:        $border-radius-sm !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
+// Alert
+
+// Alert边框
+$alert-border-width:          $border-width !default;
+// radius
+$alert-border-radius:         $border-radius !default;
+
 // menu
 $menu-border-width:            $border-width !default;
 $menu-border-color:            $border-color !default;

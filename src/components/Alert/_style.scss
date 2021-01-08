@@ -1,3 +1,15 @@
-.halo-alert {
-    
+.alert {
+    border: $alert-border-width solid transparent;
+}
+.alert-info {
+    @include alert-style($info)
+}
+.alert-success {
+    @include alert-style($success)
+}
+.alert-warning {
+    @include alert-style($warning)
+}
+.alert-error {
+    @include alert-style($danger)
 }
