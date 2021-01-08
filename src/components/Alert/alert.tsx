@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface AlertProps {
+export interface AlertProps {
     message?: string,
     type?: 'success' | 'info' | 'warning' | 'error',
     description?: string,
 }
 
-export const Alert: React.FC<AlertProps> = (props) => {
+const Alert: React.FC<AlertProps> = (props) => {
     const { message, description, type } = props;
     const classes = classNames('alert', {
         [`alert-${type}`]: type,
