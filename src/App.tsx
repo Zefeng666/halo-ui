@@ -31,7 +31,7 @@ function App() {
         <Button btnType={ButtonType.Link} href={"https://www.baidu.com"} size={ButtonSize.Large}>Link-Large</Button>
         <h2>Alert</h2>
         <Alert title={'hello~'} type={'warning'} closable />
-        <Alert title={'this is info Alert~'} description={"description"} type={'primary'} closable />
+        <Alert title={'this is info Alert~'} description={"description"} type={'primary'} closable onclose={(e)=>{alert("你关闭了一个Alert");console.log(e)}} />
         <Alert title={'hello~'} type={'error'} closable />
         <Alert title={'hello~'} type={'success'} closable={false}/>
         <h1>Halo</h1>
