@@ -30,10 +30,10 @@ function App() {
         <Button btnType={ButtonType.Warning} size={ButtonSize.Large}>Waring-Large</Button>
         <Button btnType={ButtonType.Link} href={"https://www.baidu.com"} size={ButtonSize.Large}>Link-Large</Button>
         <h2>Alert</h2>
-        <Alert message={'hello~'} type={'warning'}/>
-        <Alert message={'hello~'} type={'info'}/>
-        <Alert message={'hello~'} type={'error'}/>
-        <Alert message={'hello~'} type={'success'}/>
+        <Alert title={'hello~'} type={'warning'} closable />
+        <Alert title={'this is info Alert~'} description={"description"} type={'primary'} closable />
+        <Alert title={'hello~'} type={'error'} closable />
+        <Alert title={'hello~'} type={'success'} closable={false}/>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>

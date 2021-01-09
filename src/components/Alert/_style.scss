@@ -3,15 +3,20 @@
     border: $alert-border-width solid transparent;
     padding: $alert-padding-y $alert-padding-x;
     border-radius: $alert-border-radius;
+
     .alert-close{
         position: absolute;
         top: $alert-padding-y;
         right: $alert-padding-y;
     }
 
+    .alert-title-bold{
+        font-weight: $font-weight-bold;
+    }
+
 }
-.alert-info {
-    @include alert-style($info)
+.alert-primary {
+    @include alert-style($primary,$gray-100)
 }
 .alert-success {
     @include alert-style($success)
