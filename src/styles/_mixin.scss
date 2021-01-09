@@ -36,9 +36,10 @@
 
 @mixin alert-style (
   $border,
-  $background: lighten($border, 40%),
+  $color: $black,
+  $background: lighten($border, 5%)
 ) {
   border-color: $border;
+  color: $color;
   background: $background;
-
 }

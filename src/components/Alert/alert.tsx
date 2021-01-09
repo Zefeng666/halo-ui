@@ -1,33 +1,47 @@
-import React, {useState} from 'react';
+import React, {MouseEventHandler, useRef, useState} from 'react';
 import classNames from 'classnames';
 
 export interface AlertProps {
-    message?: string,
-    type?: 'success' | 'info' | 'warning' | 'error',
+    title?: string,
+    type?: 'success' | 'primary' | 'warning' | 'error',
     description?: string,
+    closable?: boolean,
+    onClose?:(e:React.MouseEvent<HTMLDivElement,MouseEvent>)=>void
 }
 
 
 const Alert: React.FC<AlertProps> = (props) => {
-    const { message, description, type } = props;
+    const { title, description, type ,closable,onClose} = props;
 
-    let [close,setClose] = useState(true)
+    const [close,setClose] = useState(true)
+
+    const alertRef = useRef<HTMLDivElement>(null)
 
     const classes = classNames('alert', {
-        [`alert-${type}`]: type,
+        [`alert-${type}`]: type
     })
-    return (close? <div className={classes}>
+
+    //如果不仅包含title，还存在desc的话,title 的样式应该加粗
+    const titleClass = classNames('alert-title',{
+        'alert-title-bold': description
+    })
+
+    return (close ? <div ref={alertRef} className={classes}>
         <div className='alert-content'>
-            <div className='alert-msg'>{message}</div>
-            <div className='alert-des'>{description}</div>
+            <div className={titleClass}>{title}</div>
+            {description?
+                <div className='alert-des'>{description}</div>
+                :null}
         </div>
-        <div className="alert-close" onClick={()=>setClose(false)}>关闭</div>
-    </div> : null)
+        {closable ?
+            <div className="alert-close" onClick={(e)=>{setClose(false); onClose && onClose(e)}}>❌</div>
+            :null}
+    </div>:null)
 }
 
 Alert.defaultProps = {
-    message: '',
-    type: 'info'
+    type: 'primary',
+    closable: false,
 }
 
 export default Alert;
