@@ -1,17 +1,17 @@
-import React, {useRef, useState} from 'react';
+import React, {MouseEventHandler, useRef, useState} from 'react';
 import classNames from 'classnames';
 
 export interface AlertProps {
-    title: string,
+    title?: string,
     type?: 'success' | 'primary' | 'warning' | 'error',
     description?: string,
     closable?: boolean,
-    onclose?:(e:HTMLDivElement)=>void
+    onClose?:(e:React.MouseEvent<HTMLDivElement,MouseEvent>)=>void
 }
 
 
 const Alert: React.FC<AlertProps> = (props) => {
-    const { title, description, type ,closable,onclose} = props;
+    const { title, description, type ,closable,onClose} = props;
 
     const [close,setClose] = useState(true)
 
@@ -34,7 +34,7 @@ const Alert: React.FC<AlertProps> = (props) => {
                 :null}
         </div>
         {closable ?
-            <div className="alert-close" onClick={()=>{setClose(false); onclose && onclose(alertRef.current as HTMLDivElement)}}>❌</div>
+            <div className="alert-close" onClick={(e)=>{setClose(false); onClose && onClose(e)}}>❌</div>
             :null}
     </div>:null)
 }
