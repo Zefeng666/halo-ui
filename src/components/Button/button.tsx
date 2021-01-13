@@ -64,7 +64,7 @@ const Button:FC<ButtonProps> = (props)=>{
             <a
                 className={classes}
                 href={href}
-                {...restProps as AnchorButtonProps}
+                {...restProps}
             >
                 {children}
             </a>
@@ -74,7 +74,7 @@ const Button:FC<ButtonProps> = (props)=>{
             <button
                 className={classes}
                 disabled={disabled}
-                {...restProps as ButtonProps}
+                {...restProps}
             >
                 {children}
             </button>
