@@ -37,16 +37,34 @@ function App() {
         <Alert title={'hello~'} type={'error'} closable />
         <Alert title={'hello~'} type={'success'} closable={false}/>
         <h2>Menu</h2>
-        <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}}>
-          {
-            [0,1,2].map((val)=>{
-              return (
-                  <MenuItem index={val}>
+        <h4>horizontal Menu</h4>
+        <div style={{
+          margin:"15px"
+        }}>
+          <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}}>
+            {
+              [0,1,2].map((val)=>{
+                return (
+                    <MenuItem index={val}>
                       Item {val}
-                  </MenuItem>)
-            })
-          }
-        </Menu>
+                    </MenuItem>)
+              })
+            }
+          </Menu>
+        </div>
+        <h4>vertical Menu</h4>
+        <div style={{margin:"15px"}}>
+          <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}} mode={'vertical'}>
+            {
+              [0,1,2].map((val)=>{
+                return (
+                    <MenuItem index={val}>
+                      Item {val}
+                    </MenuItem>)
+              })
+            }
+          </Menu>
+        </div>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>

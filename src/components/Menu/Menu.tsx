@@ -1,7 +1,7 @@
 import React, {createContext, FC, useState} from "react";
 import classNames from "classnames";
 
-type MenuMode = 'horizontal' | 'vertical'
+export type MenuMode = 'horizontal' | 'vertical';
 type selectCallBack = (selectIndex:number)=>void;
 
 export interface MenuProps {
