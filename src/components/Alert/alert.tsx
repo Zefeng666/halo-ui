@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import classNames from 'classnames';
 
 export interface AlertProps {
