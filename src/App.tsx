@@ -43,7 +43,7 @@ function App() {
         }}>
           <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}}>
             {
-              [0,1,2].map((val)=>{
+              [1,2,3].map((val)=>{
                 return (
                     <MenuItem index={val}>
                       Item {val}
