@@ -58,7 +58,7 @@ function App() {
             {
               [0,1,2].map((val)=>{
                 return (
-                    <MenuItem index={val}>
+                    <MenuItem>
                       Item {val}
                     </MenuItem>)
               })
