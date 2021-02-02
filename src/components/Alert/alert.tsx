@@ -11,9 +11,9 @@ export interface AlertProps {
 
 
 const Alert: React.FC<AlertProps> = (props) => {
-    const { title, description, type ,closable,onClose} = props;
+    const { title, description, type , closable, onClose } = props;
 
-    const [close,setClose] = useState(true)
+    const [ close, setClose ] = useState(true)
 
     const alertRef = useRef<HTMLDivElement>(null)
 
@@ -26,17 +26,25 @@ const Alert: React.FC<AlertProps> = (props) => {
         'alert-title-bold': description
     })
 
-    return (close ? <div ref={alertRef} className={classes}>
-        <div className='alert-content'>
-            <div className={titleClass}>{title}</div>
-            {description?
-                <div className='alert-des'>{description}</div>
-                :null}
+    return (
+        close 
+        ? <div ref={alertRef} className={classes}>
+            <div className='alert-content'>
+                <div className={titleClass}>{title}</div>
+                { 
+                    description
+                    ? <div className='alert-des'>{description}</div>
+                    : null
+                }
+            </div>
+            {   
+                closable 
+                ? <div className="alert-close" onClick={(e)=>{setClose(false); onClose && onClose(e)}}>x</div>
+                : null
+            }
         </div>
-        {closable ?
-            <div className="alert-close" onClick={(e)=>{setClose(false); onClose && onClose(e)}}>❌</div>
-            :null}
-    </div>:null)
+        : null 
+    )
 }
 
 Alert.defaultProps = {

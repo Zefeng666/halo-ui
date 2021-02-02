@@ -16,7 +16,7 @@
 
 }
 .alert-primary {
-    @include alert-style($primary,$gray-100)
+    @include alert-style($primary, $gray-100)
 }
 .alert-success {
     @include alert-style($success)
@@ -25,5 +25,5 @@
     @include alert-style($warning)
 }
 .alert-error {
-    @include alert-style($danger)
+    @include alert-style($danger, $gray-100)
 }
