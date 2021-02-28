@@ -1,12 +1,13 @@
 .menu{
   display: flex;
+  //wrap会自动换行
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 30px;
   list-style: none;
   border-bottom: $menu-border-width solid $menu-border-color;
   box-shadow: $menu-box-shadow;
-  .menu-item {
+  >.menu-item {
     padding: $menu-item-padding-y $menu-item-padding-x;
     cursor: pointer;
     transition: $menu-transition;
@@ -25,18 +26,77 @@
       border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
+  //子菜单样式
+  .submenu-item {
+    position: relative;
+    .submenu-title{
+      display: flex;
+      align-items: center;
+    }
+    .arrow-icon {
+      transition: transform .25s ease-in-out;
+      margin-left: 3px;
+    }
+    &:hover{
+      .arrow-icon {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .submenu {
+    list-style: none;
+    padding-left: 0;
+    //不进行换行
+    white-space: nowrap;
+    .menu-item {
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+      color: $body-color;
+      &.is-active,&:hover {
+        color: $menu-item-active-color !important;
+      }
+    }
+  }
+  .submenu.menu-opened {
+    display: block;
+  }
 }
-
+//如果是横向的话
+.menu-horizontal {
+  //所有的item border下面加一个透明的border
+  >.menu-item {
+    border-bottom: $menu-item-active-border-width solid transparent;
+  }
+  //SubMenu
+  .submenu {
+    display: none;
+    //设置定位是绝对布局
+    position: absolute;
+    background: $white;
+    //悬浮在其他的组件之上
+    z-index: 100;
+    //如果calc中是100%，那就是相对父定位的高度，但是加上需要增减的值，就变成了不包含下边框的高度
+    top: calc(100% + 8px);
+    left: 0;
+    border: $menu-border-width solid $menu-border-color;
+    //添加阴影
+    box-shadow: $submenu-box-shadow;
+  }
+}
 .menu-vertical{
   flex-direction: column;
-  border-bottom: 0px;
+  border-bottom: 0;
   border-right: $menu-border-width solid $menu-border-color;
-  .menu-item{
+  >.menu-item{
     border-left: $menu-item-active-border-width solid transparent;;
     &.is-active, &:hover{
       //底部边框
-      border-bottom: 0px;
+      border-bottom: 0;
       border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
+  }
+  .submenu{
+    display: none;
   }
 }

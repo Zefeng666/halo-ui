@@ -4,7 +4,7 @@ import Button, {ButtonSize, ButtonType} from "./components/Button/button";
 import Alert from './components/Alert';
 import Menu from "./components/Menu";
 import MenuItem from "./components/Menu/MenuItem";
-
+import SubMenu from "./components/Menu/SubMenu";
 function App() {
   return (
     <div className="App">
@@ -41,11 +41,11 @@ function App() {
         <div style={{
           margin:"15px"
         }}>
-          <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}}>
+          <Menu defaultIndex={"0"} onSelect={(index)=>{alert(index)}}>
             {
               [1,2,3].map((val)=>{
                 return (
-                    <MenuItem index={val}>
+                    <MenuItem>
                       Item {val}
                     </MenuItem>)
               })
@@ -54,7 +54,7 @@ function App() {
         </div>
         <h4>vertical Menu</h4>
         <div style={{margin:"15px"}}>
-          <Menu defaultIndex={0} onSelect={(index)=>{alert(index)}} mode={'vertical'}>
+          <Menu onSelect={(index)=>{alert(index)}} mode={'vertical'}>
             {
               [0,1,2].map((val)=>{
                 return (
@@ -63,6 +63,26 @@ function App() {
                     </MenuItem>)
               })
             }
+          </Menu>
+        </div>
+        <h4>Horizontal Menu With SubMenu</h4>
+        <div style={{margin:"15px",marginBottom:"100px"}}>
+          <Menu defaultIndex={"0"}>
+            <MenuItem>首页</MenuItem>
+            <SubMenu title={"下拉菜单"}>
+              <MenuItem>关于我们</MenuItem>
+              <MenuItem>下拉B</MenuItem>
+            </SubMenu>
+          </Menu>
+        </div>
+        <h4>Vertical Menu With SubMenu</h4>
+        <div style={{margin:"15px"}}>
+          <Menu defaultIndex={"0"} mode={'vertical'} onSelect={(index)=>{console.log(index)}}>
+            <MenuItem>首页</MenuItem>
+            <SubMenu title={"下拉菜单"}>
+              <MenuItem>关于我们</MenuItem>
+              <MenuItem>下拉B</MenuItem>
+            </SubMenu>
           </Menu>
         </div>
         <h1>Halo</h1>
