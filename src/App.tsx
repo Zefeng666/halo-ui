@@ -5,6 +5,8 @@ import Alert from './components/Alert';
 import Menu from "./components/Menu";
 import MenuItem from "./components/Menu/MenuItem";
 import SubMenu from "./components/Menu/SubMenu";
+import Tab from "./components/Tab/Tab";
+import TabItem from "./components/Tab/TabItem";
 function App() {
   return (
     <div className="App">
@@ -84,6 +86,34 @@ function App() {
               <MenuItem>下拉B</MenuItem>
             </SubMenu>
           </Menu>
+        </div>
+        <h4>Tab with line style</h4>
+        <div style={{margin:"15px"}}>
+          <Tab type={"line"} onSelect={index => {console.log(index)}}>
+            <TabItem label={"Hello"}>
+              Hello
+            </TabItem>
+            <TabItem label={"World"}>
+              World
+            </TabItem>
+            <TabItem label={"deprecated"} disabled>
+              deprecated
+            </TabItem>
+          </Tab>
+        </div>
+        <h4>Tab with card style</h4>
+        <div style={{margin:"15px"}}>
+          <Tab type={"card"} onSelect={index => {console.log(index)}}>
+            <TabItem label={"Hello"}>
+              Hello
+            </TabItem>
+            <TabItem label={"World"}>
+              World
+            </TabItem>
+            <TabItem label={"deprecated"} disabled>
+              deprecated
+            </TabItem>
+          </Tab>
         </div>
         <h1>Halo</h1>
         <h2>Halo</h2>
