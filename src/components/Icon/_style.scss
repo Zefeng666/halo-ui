@@ -1,0 +1,5 @@
+@each $key,$val in $theme-colors{
+  .halo-icon-#{$key}{
+    color: $val
+  }
+}

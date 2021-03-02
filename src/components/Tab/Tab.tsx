@@ -1,4 +1,4 @@
-import React, {createContext, FunctionComponentElement, useContext, useState} from "react";
+import React, { FunctionComponentElement, useState} from "react";
 import {ITabItemProps} from "./TabItem";
 import classNames from "classnames";
 
@@ -22,9 +22,6 @@ const Tab:React.FC<ITabProps> = (props)=>{
         'nav-line':type === 'line',
         'nav-card':type === 'card'
     })
-    // const classes = className('',{
-    //
-    // })
 
     const handleClick = (e:React.MouseEvent,index:number,disabled:boolean|undefined)=>{
         if (!disabled){
