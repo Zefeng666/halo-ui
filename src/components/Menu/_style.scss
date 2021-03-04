@@ -26,7 +26,7 @@
       border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
-  //子菜单样式
+  //子菜单项目样式
   .submenu-item {
     position: relative;
     .submenu-title{
@@ -37,10 +37,18 @@
       transition: transform .25s ease-in-out;
       margin-left: 3px;
     }
+  }
+  .is-horizontal{
     &:hover{
       .arrow-icon {
-        transform: rotate(90deg);
+        transform: rotate(-180deg);
       }
+    }
+  }
+  //标识同时满足的关系
+  .is-vertical.is-active.is-open{
+    .arrow-icon{
+      transform: rotate(-180deg);
     }
   }
   .submenu {
