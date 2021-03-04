@@ -5,6 +5,14 @@ import Alert from './components/Alert';
 import Menu from "./components/Menu";
 import MenuItem from "./components/Menu/MenuItem";
 import SubMenu from "./components/Menu/SubMenu";
+import Tab from "./components/Tab/Tab";
+import TabItem from "./components/Tab/TabItem";
+import Icon from "./components/Icon/icon";
+import {library} from "@fortawesome/fontawesome-svg-core";
+import {fas} from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
+
 function App() {
   return (
     <div className="App">
@@ -85,6 +93,40 @@ function App() {
             </SubMenu>
           </Menu>
         </div>
+        <h4>Tab with line style</h4>
+        <div style={{margin:"15px"}}>
+          <Tab type={"line"} onSelect={index => {console.log(index)}}>
+            <TabItem label={"Hello"}>
+              Hello
+            </TabItem>
+            <TabItem label={"World"}>
+              World
+            </TabItem>
+            <TabItem label={"deprecated"} disabled>
+              deprecated
+            </TabItem>
+          </Tab>
+        </div>
+        <h4>Tab with card style</h4>
+        <div style={{margin:"15px"}}>
+          <Tab type={"card"} onSelect={index => {console.log(index)}}>
+            <TabItem label={"Hello"}>
+              Hello
+            </TabItem>
+            <TabItem label={"World"}>
+              World
+            </TabItem>
+            <TabItem label={"deprecated"} disabled>
+              deprecated
+            </TabItem>
+          </Tab>
+        </div>
+        <h4>Icon</h4>
+        <Icon icon={"coffee"} theme={"dark"}/>
+        <Icon icon={"coffee"} theme={"secondary"}/>
+        <Icon icon={"coffee"} theme={"dark"} size={"2x"}/>
+        <Icon icon={"coffee"} theme={"dark"} size={"5x"}/>
+        <Icon icon={"coffee"} theme={"primary"} size={"5x"}/>
         <h1>Halo</h1>
         <h2>Halo</h2>
         <h3>Halo</h3>

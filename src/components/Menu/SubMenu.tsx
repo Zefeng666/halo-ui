@@ -2,6 +2,8 @@ import React, {useContext, FunctionComponentElement, useState} from "react";
 import classNames from "classnames";
 import {MenuContext} from "./Menu";
 import {MenuItemProps} from "./MenuItem";
+import Icon from "../Icon/icon";
+
 
 export interface SubMenuProps {
     index?:string,
@@ -40,7 +42,10 @@ const SubMenu:React.FC<SubMenuProps> = (props)=>{
     }
 
     const classes = classNames('menu-item submenu-item',{
-        'is-active':menuContext.index === index
+        'is-active':menuContext.index === index,
+        'is-open': openStatus,
+        'is-vertical':menuContext.mode === "vertical",
+        'is-horizontal':menuContext.mode === "horizontal"
     })
 
     //如果当前的Menu是横向的，那么hover就触发子菜单的显示
@@ -86,7 +91,7 @@ const SubMenu:React.FC<SubMenuProps> = (props)=>{
         <li key={index} className={classes} {...hoverEvents} {...clickEvents}>
             <div className='submenu-title'>
                 {title}
-                <div className={"arrow-icon"}>➡︎</div>
+                <Icon icon="angle-down" className="arrow-icon"/>
             </div>
             {renderChildren()}
         </li>
